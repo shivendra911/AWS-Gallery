@@ -26,10 +26,22 @@ function getSafeInitialApiBase() {
   if (!saved) return fallback;
 
   const normalized = normalizeApiBase(saved);
-  const frontendOrigin = normalizeApiBase(window.location.origin);
-  if (!normalized || normalized === frontendOrigin) {
+  if (!normalized) return fallback;
+
+  try {
+    const savedUrl = new URL(normalized);
+    const currentHostname = window.location.hostname;
+    const isLocalhost = (h) => h === "localhost" || h === "127.0.0.1";
+
+    // If the saved URL points to localhost but we are running on a remote server,
+    // discard it and use the computed default (same-host:3001).
+    if (isLocalhost(savedUrl.hostname) && !isLocalhost(currentHostname)) {
+      return fallback;
+    }
+  } catch (_error) {
     return fallback;
   }
+
   return normalized;
 }
 
