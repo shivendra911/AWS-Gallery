@@ -1,8 +1,8 @@
 export function getDefaultApiBase() {
+  // When served via Nginx, API routes are proxied on the same origin (port 80).
+  // Nginx forwards /upload, /images, /health to the backend on localhost:3001.
   if (window.location.protocol.startsWith("http")) {
-    // Always point to backend port 3001 regardless of what port the frontend is served from
-    const { protocol, hostname } = window.location;
-    return `${protocol}//${hostname}:3001`;
+    return window.location.origin;
   }
   return "http://localhost:3001";
 }
