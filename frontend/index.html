@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atelier Gallery</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section class="hero">
+        <h1>Atelier Gallery</h1>
+        <p>Upload and curate visual work in a modern, interactive gallery space.</p>
+
+        <div class="controls">
+          <input id="apiBase" type="text" placeholder="API URL (e.g. http://localhost:3001)" autocomplete="off" />
+          <button id="saveApiBtn" class="secondary" type="button">Save API URL</button>
+          <button id="refreshBtn" type="button">Refresh Gallery</button>
+        </div>
+
+        <form id="uploadForm" class="upload-bar" novalidate>
+          <input id="imageInput" type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png" required />
+          <button id="uploadBtn" type="submit">Upload Image</button>
+        </form>
+
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="gallery-wrap">
+        <div class="gallery-head">
+          <h2>Collection</h2>
+          <small id="galleryCount">0 images</small>
+        </div>
+        <div class="gallery-wall">
+          <div id="gallery" class="gallery"></div>
+        </div>
+      </section>
+    </main>
+
+    <div id="galleryModal" class="modal" aria-hidden="true">
+      <div class="modal-card">
+        <button id="closeModalBtn" class="close" type="button" aria-label="Close preview">&times;</button>
+        <img id="modalImage" alt="Preview" />
+      </div>
+    </div>
+
+    <script type="module" src="./assets/js/app.js"></script>
+  </body>
+</html>
