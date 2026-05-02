@@ -9,6 +9,9 @@ This project provides:
 - GitHub Actions workflow for EC2 deployment
 
 ## Project Structure
+## Frontend URL : https://gallery.shivendrawork.me
+## Backend URL : https://image-api.shivendrawork.me
+
 
 ```text
 .
