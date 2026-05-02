@@ -36,7 +36,7 @@ function getSafeInitialApiBase() {
 function isValidImage(file) {
   if (!file) return { ok: false, reason: "Please choose an image file." };
   if (!ACCEPTED_TYPES.has(file.type)) return { ok: false, reason: "Only JPG and PNG files are allowed." };
-  if (file.size > MAX_FILE_SIZE_BYTES) return { ok: false, reason: "Image must be 2MB or smaller." };
+  if (file.size > MAX_FILE_SIZE_BYTES) return { ok: false, reason: "Image must be 20MB or smaller." };
   return { ok: true };
 }
 

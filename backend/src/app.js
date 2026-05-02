@@ -4,7 +4,7 @@ const cors = require("cors");
 const multer = require("multer");
 const { uploadImage, listImageUrls } = require("./storage");
 
-const MAX_IMAGE_SIZE_BYTES = 2 * 1024 * 1024;
+const MAX_IMAGE_SIZE_BYTES = 20 * 1024 * 1024;
 const ALLOWED_MIME_TYPES = new Set(["image/jpeg", "image/png"]);
 
 function buildObjectKey(filename = "image") {
@@ -66,7 +66,7 @@ function createApp() {
   app.use((error, _req, res, _next) => {
     if (error instanceof multer.MulterError) {
       if (error.code === "LIMIT_FILE_SIZE") {
-        res.status(400).json({ error: "Image must be 2MB or smaller" });
+        res.status(400).json({ error: "Image must be 20MB or smaller" });
         return;
       }
       res.status(400).json({ error: error.message });

@@ -2,7 +2,7 @@
 
 This project provides:
 
-- `POST /upload` to upload JPG/PNG images up to 2MB
+- `POST /upload` to upload JPG/PNG images up to 20MB
 - `GET /images` to list uploaded image URLs
 - S3-based storage with no database (and optional local mode for full offline testing)
 - Simple frontend gallery (`frontend/index.html`)
@@ -124,7 +124,7 @@ Open `frontend/index.html` in a browser.
 
 - Production-style UI includes:
   - persisted API base URL (`localStorage`)
-  - client-side file validation (JPG/PNG, max 2MB)
+  - client-side file validation (JPG/PNG, max 20MB)
   - upload/loading/error/success states
   - gallery cards with **Open** and **Copy URL**
 
